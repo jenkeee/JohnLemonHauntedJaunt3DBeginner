@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
 
     Animator m_Animator; // ссылка на компонент аниматор
     Rigidbody m_Rigidbody; // ссылка на компонент ригитбади
+    AudioSource m_AudioSource; // добавим ссылку на компонент AudioSource
     Vector3 m_Movement;
     Quaternion m_Rotation = Quaternion.identity;
 
@@ -20,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     {
         m_Animator = GetComponent<Animator>(); //«Получите ссылку на компонент типа« Animator »и назначьте ее переменной с именем m_Animator».
         m_Rigidbody = GetComponent<Rigidbody>();
+        m_AudioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -49,6 +51,19 @@ public class PlayerMovement : MonoBehaviour
         bool hasVerticalInput = !Mathf.Approximately(vertical, 0f);
         bool isWalking = hasHorizontalInput || hasVerticalInput;
         m_Animator.SetBool("IsWalking", isWalking); // метод SetBool обращается к параметрам свойствам которые мы создали на компоненте аниматор ранее. Очень важен регистр
+
+        if (isWalking) // проверим идем ли мы
+        {
+            if (!m_AudioSource.isPlaying) // если звук не играет
+            {
+                m_AudioSource.Play(); // играем звук
+            }
+        }
+        else
+        {
+            m_AudioSource.Stop(); // во всех других случаях не играем звук
+        }
+
 
         Vector3 desiredForward = Vector3.RotateTowards(transform.forward, m_Movement, turnSpeed * Time.deltaTime, 0f);
         //Этот код создает переменную Vector3 с именем desireForward .
