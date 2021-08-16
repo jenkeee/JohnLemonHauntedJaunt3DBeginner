@@ -7,7 +7,7 @@ public class GameEnding : MonoBehaviour
 {/* выводим переменные в редактор */
     public float fadeDuration = 1f; // сколько будет исчезать появлятся
     public float displayImageDuration = 1f;  // сколько будет отображатся // мы не узнаем из под редакитора
-    // собственно эти 2 сверху неработают, будем разбираться
+   
     public GameObject player; // выводим в редактор возможность менять переменную плаер обозначенную юнити как GameObject
     // в редакторе GameObject имеет свои свойства
     public CanvasGroup exitBackgroundImageCanvasGroup; // выводим в редактор возможность получать кахвас группу.
