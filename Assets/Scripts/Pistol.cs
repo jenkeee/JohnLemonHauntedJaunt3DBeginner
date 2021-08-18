@@ -18,7 +18,10 @@ public class Pistol : MonoBehaviour
    [Tooltip("The target object on which to operate.  If null, then the current behaviour/GameObject will be used")]
     public UnityEngine.Object m_Target;
 
-
+    [Tooltip("—юда требуетьс€ положить объект который исчезнет когда лемон его возмет")]
+    public UnityEngine.Object m_PlasmaGun;
+    [Tooltip("—юда требуетьс€ положить объект пистоли")]
+    public UnityEngine.Object m_MyPistol;
 
 
     void Start()
@@ -33,6 +36,7 @@ public class Pistol : MonoBehaviour
             m_IsPlayerGetPistol = true;
             
             UnityEngine.Object currentTarget = m_Target;
+            
             if (currentTarget != null)
             {
                 GameObject targetGameObject = currentTarget as GameObject;
@@ -41,6 +45,23 @@ public class Pistol : MonoBehaviour
                     targetGameObject = targetBehaviour.gameObject;
                 if (targetGameObject != null)
                     targetGameObject.SetActive(false);
+            }
+            Object currentItem = m_PlasmaGun;
+            if (currentItem != null)
+            {
+                GameObject targetGameObject = currentItem as GameObject;
+                //Behaviour targetBehaviour = currentItem as Behaviour;
+               // if (targetBehaviour != null)
+               //     targetGameObject = targetBehaviour.gameObject;
+                if (targetGameObject != null)
+                    targetGameObject.SetActive(false);
+            }
+            Object MyPistol = m_MyPistol;
+            if (MyPistol != null)
+            {
+                GameObject targetGameObject = MyPistol as GameObject;
+                if (targetGameObject != null)
+                    targetGameObject.SetActive(true);
             }
         }
     }
