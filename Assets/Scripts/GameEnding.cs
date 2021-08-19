@@ -49,6 +49,7 @@ public class GameEnding : MonoBehaviour
             EndLevel(exitBackgroundImageCanvasGroup, false, exitAudio); // если условие выполненно то выполним метод EndLevel
             // после изменения параметров на описание метода, обязательно добавим новые параметры и тут здесь у нас звук exitAudio
         }
+        else if (player.transform.position.y > -30) m_IsPlayerCaught = true;
         else if (m_IsPlayerCaught)
         {
             EndLevel(caughtBackgroundImageCanvasGroup, true, caughtAudio); // в параметре указываем от какого параметра получаем енд левл
@@ -86,7 +87,8 @@ public class GameEnding : MonoBehaviour
             }
             else
             {
-                Application.Quit(); // если не получим флаг. то выйдем из игры
+                SceneManager.LoadScene("lvl2", LoadSceneMode.Single);
+               // Application.Quit(); // если не получим флаг. то выйдем из игры
             }
     }
 }

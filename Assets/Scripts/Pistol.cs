@@ -50,11 +50,12 @@ public class Pistol : MonoBehaviour
             if (currentItem != null)
             {
                 GameObject targetGameObject = currentItem as GameObject;
+
                 //Behaviour targetBehaviour = currentItem as Behaviour;
                // if (targetBehaviour != null)
                //     targetGameObject = targetBehaviour.gameObject;
                 if (targetGameObject != null)
-                    targetGameObject.SetActive(false);
+                    targetGameObject.SetActive(false);                
             }
             Object MyPistol = m_MyPistol;
             if (MyPistol != null)
