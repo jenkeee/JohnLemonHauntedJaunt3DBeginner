@@ -33,7 +33,7 @@ MonoBehaviour:
     value: 0
   scale:
     overrideState: 1
-    value: 1.1
+    value: 1
 --- !u!114 &-5678214268167271865
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1489,10 +1489,10 @@ MonoBehaviour:
     value: 0.5
   smoothness:
     overrideState: 1
-    value: 0.3
+    value: 0.515
   roundness:
     overrideState: 1
-    value: 1
+    value: 0.822
   rounded:
     overrideState: 1
     value: 0
